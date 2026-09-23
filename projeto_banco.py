@@ -50,17 +50,28 @@ def main():
     def sacar_saldo():
         os.system('cls')
         global saldo
-        try:
-            print('|||Sacar Valor|||\n')
-            valor_sacado = float(input('Qual valor você deseja sacar: '))
-            if valor_sacado > 0:
-                saldo -= valor_sacado
-                input('\nVALOR SACADO - Aperte uma tecla para retornar ao menu: ')
-                exibir_opcoes()
-            else:
+        if saldo > 0:
+            try:
+                print('|||Sacar Valor|||\n')
+                valor_sacado = float(input('Qual valor você deseja sacar: '))
+
+                if valor_sacado > saldo:
+                    os.system('cls')
+                    print('Saldo insuficiente!')
+                    input('Aperte uma tecla para retornar ao menu: ')
+                    exibir_opcoes()
+                elif valor_sacado > 0:
+                    saldo -= valor_sacado
+                    input('\nVALOR SACADO - Aperte uma tecla para retornar ao menu: ')
+                    exibir_opcoes()
+                else:
+                    valor_invalido()
+            except:
                 valor_invalido()
-        except:
-            valor_invalido()
+        else:
+            print('Você não tem mais saldo, deposite mais dinheiro para poder sacar!\n')
+            input('Aperte uma tecla para retornar ao menu:  ')
+            exibir_opcoes()
         
     def finalizar_programa():
         os.system('cls')
