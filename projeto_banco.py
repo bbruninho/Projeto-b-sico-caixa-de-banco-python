@@ -3,8 +3,6 @@ saldo = 1000
 
 def main():   
 
-    
-
     def exibir_opcoes():
         os.system('cls')
         print('*****Caixa Eletrônico*****\n')
@@ -25,7 +23,6 @@ def main():
         else:
             valor_invalido()
             
-
     def consultar_saldo():
         os.system('cls')
         print(f'|||Seu saldo atual é de: {saldo}|||')
@@ -82,7 +79,6 @@ def main():
         print('Valor invalido!')
         input('Aperte uma tecla para voltar ao menu:')
         exibir_opcoes()
-
 
     exibir_opcoes()
     
